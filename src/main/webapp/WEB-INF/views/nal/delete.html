@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete nal</title>
+</head>
+<body>
+<h1>Delete nal</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/nal/list">nal list</a>
+</p>
+<form th:action="@{/nal/delete/__${nal.id}__ }" th:object="${nal}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${nal.name}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete nal"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
