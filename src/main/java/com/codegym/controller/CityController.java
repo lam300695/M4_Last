@@ -55,7 +55,7 @@ public class CityController {
     public ModelAndView viewProvince(@PathVariable("id") Long id){
         Nal nal = nalService.findById(id);
         if(nal == null){
-            return new ModelAndView("/error.404");
+            return new ModelAndView("/404");
         }
 
         Iterable<City> cities = cityService.findAllByNal(nal);
@@ -98,7 +98,7 @@ public class CityController {
         return "/city/delete";
     }
 
-    @PostMapping("/city/edit/{id}")
+    @PostMapping("/city/delete/{id}")
     public String saveDelete(Model model,@PathVariable Long id){
         cityService.remove(id);
         return "/city/delete";
